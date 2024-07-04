@@ -1,0 +1,283 @@
+{
+    "Andhra Pradesh": {
+      "dos": [
+        "Eat fiber-rich vegetables like bitter gourd, spinach, and drumsticks.",
+        "Include legumes like chickpeas and lentils in meals."
+      ],
+      "donts": [
+        "Avoid high-sugar fruits like mangoes and custard apples.",
+        "Limit consumption of rice; prefer brown rice or millets."
+      ]
+    },
+    "Arunachal Pradesh": {
+      "dos": [
+        "Consume leafy greens and vegetables like mustard greens and bamboo shoots.",
+        "Opt for whole grains like brown rice and millets."
+      ],
+      "donts": [
+        "Avoid high-carb traditional foods like thukpa made with regular noodles.",
+        "Steer clear of sugary beverages."
+      ]
+    },
+    "Assam": {
+      "dos": [
+        "Include bitter vegetables like karela (bitter gourd) in your diet.",
+        "Eat lots of green leafy vegetables and pulses."
+      ],
+      "donts": [
+        "Avoid high-sugar sweets like pitha.",
+        "Limit consumption of white rice; prefer red rice or brown rice."
+      ]
+    },
+    "Bihar": {
+      "dos": [
+        "Consume vegetables like okra, brinjal, and gourd.",
+        "Include whole grains like jowar, bajra, and ragi."
+      ],
+      "donts": [
+        "Avoid traditional sweets like khaja and tilkut.",
+        "Limit intake of refined flour products."
+      ]
+    },
+    "Chhattisgarh": {
+      "dos": [
+        "Eat vegetables like pumpkin, ridge gourd, and amaranth leaves.",
+        "Include pulses and legumes in the diet."
+      ],
+      "donts": [
+        "Avoid consumption of sweets like kusli.",
+        "Limit intake of high-carb foods like poha and flattened rice."
+      ]
+    },
+    "Goa": {
+      "dos": [
+        "Eat plenty of leafy greens and non-starchy vegetables.",
+        "Include beans and legumes like mung beans and chickpeas."
+      ],
+      "donts": [
+        "Avoid sugary Goan sweets like bebinca and dodol.",
+        "Limit intake of white rice and coconut-based dishes with added sugar."
+      ]
+    },
+    "Gujarat": {
+      "dos": [
+        "Include fiber-rich vegetables like fenugreek, spinach, and gourds.",
+        "Eat pulses like chana dal and moong dal."
+      ],
+      "donts": [
+        "Avoid sweets like jalebi and fafda.",
+        "Limit intake of refined flour items like dhokla and thepla."
+      ]
+    },
+    "Haryana": {
+      "dos": [
+        "Consume green leafy vegetables and gourd varieties.",
+        "Include whole grains like barley and bajra."
+      ],
+      "donts": [
+        "Avoid sweets like gur (jaggery) and ghee-rich dishes.",
+        "Limit intake of parathas made with refined flour."
+      ]
+    },
+    "Himachal Pradesh": {
+      "dos": [
+        "Eat vegetables like spinach, turnips, and radishes.",
+        "Include legumes and beans in your meals."
+      ],
+      "donts": [
+        "Avoid sweets like siddu and patande.",
+        "Limit consumption of white rice and refined flour products."
+      ]
+    },
+    "Jharkhand": {
+      "dos": [
+        "Include leafy greens and vegetables like bottle gourd and bitter gourd.",
+        "Eat pulses and whole grains like millet and brown rice."
+      ],
+      "donts": [
+        "Avoid traditional sweets like thekua and tilkut.",
+        "Limit intake of high-carb foods like rice and refined flour items."
+      ]
+    },
+    "Karnataka": {
+      "dos": [
+        "Consume vegetables like greens, gourds, and beans.",
+        "Include whole grains like ragi and jowar."
+      ],
+      "donts": [
+        "Avoid sweets like Mysore pak and jalebi.",
+        "Limit intake of white rice and refined flour-based dishes."
+      ]
+    },
+    "Kerala": {
+      "dos": [
+        "Eat non-starchy vegetables and leafy greens.",
+        "Include pulses and legumes in the diet."
+      ],
+      "donts": [
+        "Avoid sweets like payasam and unniyappam.",
+        "Limit intake of white rice and coconut-based dishes with added sugar."
+      ]
+    },
+    "Madhya Pradesh": {
+      "dos": [
+        "Consume vegetables like spinach, fenugreek, and gourds.",
+        "Eat whole grains like jowar and bajra."
+      ],
+      "donts": [
+        "Avoid sweets like jalebi and malpua.",
+        "Limit intake of high-carb foods like poha."
+      ]
+    },
+    "Maharashtra": {
+      "dos": [
+        "Include vegetables like bitter gourd, spinach, and beans.",
+        "Eat whole grains like jowar, bajra, and millets."
+      ],
+      "donts": [
+        "Avoid sweets like puran poli and shrikhand.",
+        "Limit intake of refined flour products."
+      ]
+    },
+    "Manipur": {
+      "dos": [
+        "Consume green leafy vegetables and bitter vegetables.",
+        "Include whole grains like brown rice and millets."
+      ],
+      "donts": [
+        "Avoid high-sugar traditional sweets.",
+        "Limit intake of rice-based dishes."
+      ]
+    },
+    "Meghalaya": {
+      "dos": [
+        "Eat non-starchy vegetables and leafy greens.",
+        "Include pulses and legumes in meals."
+      ],
+      "donts": [
+        "Avoid sweets and high-sugar foods.",
+        "Limit intake of white rice and refined flour products."
+      ]
+    },
+    "Mizoram": {
+      "dos": [
+        "Include green leafy vegetables and beans.",
+        "Opt for whole grains like brown rice and millets."
+      ],
+      "donts": [
+        "Avoid high-sugar foods and sweets.",
+        "Limit intake of white rice and refined flour items."
+      ]
+    },
+    "Nagaland": {
+      "dos": [
+        "Eat vegetables like gourds and leafy greens.",
+        "Include legumes and pulses."
+      ],
+      "donts": [
+        "Avoid high-carb traditional foods.",
+        "Limit intake of sweets and sugary foods."
+      ]
+    },
+    "Odisha": {
+      "dos": [
+        "Consume leafy greens and bitter vegetables.",
+        "Include pulses and whole grains."
+      ],
+      "donts": [
+        "Avoid sweets like rasagola and chhena poda.",
+        "Limit intake of high-carb foods like rice."
+      ]
+    },
+    "Punjab": {
+      "dos": [
+        "Include leafy greens and non-starchy vegetables.",
+        "Eat pulses and legumes like kidney beans and chickpeas."
+      ],
+      "donts": [
+        "Avoid sweets like jalebi and gajar halwa.",
+        "Limit intake of high-carb foods like parathas."
+      ]
+    },
+    "Rajasthan": {
+      "dos": [
+        "Eat vegetables like gourd varieties and fenugreek.",
+        "Include whole grains like bajra and jowar."
+      ],
+      "donts": [
+        "Avoid sweets like ghevar and churma.",
+        "Limit intake of refined flour products."
+      ]
+    },
+    "Sikkim": {
+      "dos": [
+        "Consume green leafy vegetables and beans.",
+        "Include whole grains like buckwheat and barley."
+      ],
+      "donts": [
+        "Avoid high-sugar traditional sweets.",
+        "Limit intake of white rice."
+      ]
+    },
+    "Tamil Nadu": {
+      "dos": [
+        "Include vegetables like spinach, bitter gourd, and beans.",
+        "Eat whole grains like millets and brown rice."
+      ],
+      "donts": [
+        "Avoid sweets like payasam and laddu.",
+        "Limit intake of white rice and refined flour products."
+      ]
+    },
+    "Telangana": {
+      "dos": [
+        "Eat leafy greens and non-starchy vegetables.",
+        "Include legumes and pulses."
+      ],
+      "donts": [
+        "Avoid sweets like double ka meetha and laddu.",
+        "Limit intake of white rice and refined flour items."
+      ]
+    },
+    "Tripura": {
+      "dos": [
+        "Include green leafy vegetables and bitter vegetables.",
+        "Opt for whole grains like brown rice and millets."
+      ],
+      "donts": [
+        "Avoid high-sugar traditional sweets.",
+        "Limit intake of white rice and refined flour products."
+      ]
+    },
+    "Uttar Pradesh": {
+      "dos": [
+        "Consume green leafy vegetables and gourd varieties.",
+        "Include pulses and whole grains."
+      ],
+      "donts": [
+        "Avoid sweets like jalebi and peda.",
+        "Limit intake of high-carb foods like parathas."
+      ]
+    },
+    "Uttarakhand": {
+      "dos": [
+        "Include green leafy vegetables and beans.",
+        "Include whole grains like barley and buckwheat."
+      ],
+      "donts": [
+        "Avoid sweets and high-sugar foods.",
+        "Limit intake of white rice and refined flour products."
+      ]
+    },
+    "West Bengal": {
+      "dos": [
+        "Eat vegetables like bitter gourd, spinach, and beans.",
+        "Include pulses and legumes."
+      ],
+      "donts": [
+        "Avoid sweets like rasgulla and sandesh.",
+        "Limit intake of high-carb foods like rice."
+      ]
+    }
+  }
+  

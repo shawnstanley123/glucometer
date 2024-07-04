@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "33149749723",
+    "project_id": "gluco-meter",
+    "storage_bucket": "gluco-meter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:33149749723:android:87e37dde69dcf51c013ffe",
+        "android_client_info": {
+          "package_name": "com.shawnstanley123.glucometer"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhNMm1sllX0KCQMiXP-ZaFdYV4swu6AoA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

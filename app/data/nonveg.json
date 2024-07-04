@@ -1,0 +1,283 @@
+{
+    "Andhra Pradesh": {
+      "dos": [
+        "Include seafood like fish and prawns in moderation.",
+        "Opt for lean meats like chicken and turkey."
+      ],
+      "donts": [
+        "Avoid excessive red meat consumption.",
+        "Limit intake of fried and oily preparations."
+      ]
+    },
+    "Arunachal Pradesh": {
+      "dos": [
+        "Consume locally sourced fish and meats.",
+        "Include wild game meat in moderation."
+      ],
+      "donts": [
+        "Avoid processed meats and canned fish.",
+        "Limit consumption of high-fat meats."
+      ]
+    },
+    "Assam": {
+      "dos": [
+        "Include freshwater fish in meals.",
+        "Opt for poultry and lean cuts of meat."
+      ],
+      "donts": [
+        "Avoid excessive use of oil in cooking.",
+        "Limit intake of fried fish and meats."
+      ]
+    },
+    "Bihar": {
+      "dos": [
+        "Consume freshwater fish like rohu and katla.",
+        "Include poultry like chicken and turkey."
+      ],
+      "donts": [
+        "Avoid red meats with high fat content.",
+        "Limit consumption of fried meat preparations."
+      ]
+    },
+    "Chhattisgarh": {
+      "dos": [
+        "Include locally sourced fish varieties.",
+        "Opt for lean cuts of chicken and mutton."
+      ],
+      "donts": [
+        "Avoid fried fish and oily meat dishes.",
+        "Limit consumption of high-fat meats."
+      ]
+    },
+    "Goa": {
+      "dos": [
+        "Eat fresh seafood like prawns and fish.",
+        "Include lean meats like chicken and turkey."
+      ],
+      "donts": [
+        "Avoid fried seafood and fatty cuts of meat.",
+        "Limit intake of processed meats."
+      ]
+    },
+    "Gujarat": {
+      "dos": [
+        "Include fresh seafood like pomfret and surmai.",
+        "Opt for lean cuts of chicken and mutton."
+      ],
+      "donts": [
+        "Avoid fried seafood and oily meat dishes.",
+        "Limit consumption of high-fat meats."
+      ]
+    },
+    "Haryana": {
+      "dos": [
+        "Consume lean meats like chicken and turkey.",
+        "Include freshwater fish like rohu and katla."
+      ],
+      "donts": [
+        "Avoid excessive use of oil in cooking.",
+        "Limit intake of fried fish and meats."
+      ]
+    },
+    "Himachal Pradesh": {
+      "dos": [
+        "Include locally sourced trout and freshwater fish.",
+        "Opt for lean cuts of chicken and mutton."
+      ],
+      "donts": [
+        "Avoid fried fish and oily meat dishes.",
+        "Limit consumption of high-fat meats."
+      ]
+    },
+    "Jharkhand": {
+      "dos": [
+        "Consume freshwater fish like rohu and katla.",
+        "Include lean cuts of chicken and mutton."
+      ],
+      "donts": [
+        "Avoid red meats with high fat content.",
+        "Limit consumption of fried meat preparations."
+      ]
+    },
+    "Karnataka": {
+      "dos": [
+        "Include coastal seafood varieties.",
+        "Opt for lean cuts of chicken and mutton."
+      ],
+      "donts": [
+        "Avoid fried seafood and oily meat dishes.",
+        "Limit consumption of high-fat meats."
+      ]
+    },
+    "Kerala": {
+      "dos": [
+        "Eat fresh seafood like prawns and fish.",
+        "Include lean meats like chicken and turkey."
+      ],
+      "donts": [
+        "Avoid fried seafood and fatty cuts of meat.",
+        "Limit intake of processed meats."
+      ]
+    },
+    "Madhya Pradesh": {
+      "dos": [
+        "Include locally sourced fish varieties.",
+        "Opt for lean cuts of chicken and mutton."
+      ],
+      "donts": [
+        "Avoid fried fish and oily meat dishes.",
+        "Limit consumption of high-fat meats."
+      ]
+    },
+    "Maharashtra": {
+      "dos": [
+        "Eat fresh seafood like pomfret and surmai.",
+        "Include lean cuts of chicken and mutton."
+      ],
+      "donts": [
+        "Avoid fried seafood and oily meat dishes.",
+        "Limit consumption of high-fat meats."
+      ]
+    },
+    "Manipur": {
+      "dos": [
+        "Consume freshwater fish like rohu and katla.",
+        "Include lean cuts of chicken and mutton."
+      ],
+      "donts": [
+        "Avoid red meats with high fat content.",
+        "Limit consumption of fried meat preparations."
+      ]
+    },
+    "Meghalaya": {
+      "dos": [
+        "Eat locally sourced meats like pork and chicken.",
+        "Include freshwater fish in meals."
+      ],
+      "donts": [
+        "Avoid processed meats and canned fish.",
+        "Limit consumption of high-fat meats."
+      ]
+    },
+    "Mizoram": {
+      "dos": [
+        "Include freshwater fish like rohu and katla.",
+        "Opt for lean cuts of chicken and mutton."
+      ],
+      "donts": [
+        "Avoid fried fish and oily meat dishes.",
+        "Limit consumption of high-fat meats."
+      ]
+    },
+    "Nagaland": {
+      "dos": [
+        "Consume locally sourced meats like pork and chicken.",
+        "Include freshwater fish in meals."
+      ],
+      "donts": [
+        "Avoid processed meats and canned fish.",
+        "Limit consumption of high-fat meats."
+      ]
+    },
+    "Odisha": {
+      "dos": [
+        "Include seafood like prawns and fish.",
+        "Opt for lean cuts of chicken and mutton."
+      ],
+      "donts": [
+        "Avoid fried seafood and oily meat dishes.",
+        "Limit intake of processed meats."
+      ]
+    },
+    "Punjab": {
+      "dos": [
+        "Eat lean meats like chicken and turkey.",
+        "Include freshwater fish like rohu and katla."
+      ],
+      "donts": [
+        "Avoid excessive use of oil in cooking.",
+        "Limit intake of fried fish and meats."
+      ]
+    },
+    "Rajasthan": {
+      "dos": [
+        "Consume lean meats like chicken and mutton.",
+        "Include freshwater fish like rohu and katla."
+      ],
+      "donts": [
+        "Avoid excessive use of oil in cooking.",
+        "Limit intake of fried fish and meats."
+      ]
+    },
+    "Sikkim": {
+      "dos": [
+        "Include locally sourced meats like pork and chicken.",
+        "Include freshwater fish in meals."
+      ],
+      "donts": [
+        "Avoid processed meats and canned fish.",
+        "Limit consumption of high-fat meats."
+      ]
+    },
+    "Tamil Nadu": {
+      "dos": [
+        "Eat coastal seafood varieties like prawns and fish.",
+        "Include lean meats like chicken and turkey."
+      ],
+      "donts": [
+        "Avoid fried seafood and fatty cuts of meat.",
+        "Limit intake of processed meats."
+      ]
+    },
+    "Telangana": {
+      "dos": [
+        "Include seafood like prawns and fish.",
+        "Opt for lean cuts of chicken and mutton."
+      ],
+      "donts": [
+        "Avoid fried seafood and oily meat dishes.",
+        "Limit intake of high-fat meats."
+      ]
+    },
+    "Tripura": {
+      "dos": [
+        "Consume locally sourced fish and meats.",
+        "Include wild game meat in moderation."
+      ],
+      "donts": [
+        "Avoid processed meats and canned fish.",
+        "Limit consumption of high-fat meats."
+      ]
+    },
+    "Uttar Pradesh": {
+      "dos": [
+        "Eat lean meats like chicken and turkey.",
+        "Include freshwater fish like rohu and katla."
+      ],
+      "donts": [
+        "Avoid excessive use of oil in cooking.",
+        "Limit intake of fried fish and meats."
+      ]
+    },
+    "Uttarakhand": {
+      "dos": [
+        "Include freshwater fish like trout.",
+        "Opt for lean cuts of chicken and mutton."
+      ],
+      "donts": [
+        "Avoid fried fish and oily meat dishes.",
+        "Limit consumption of high-fat meats."
+      ]
+    },
+    "West Bengal": {
+      "dos": [
+        "Eat seafood like prawns and fish.",
+        "Include lean meats like chicken and turkey."
+      ],
+      "donts": [
+        "Avoid fried seafood and fatty cuts of meat.",
+        "Limit intake of processed meats."
+      ]
+    }
+  }
+  
