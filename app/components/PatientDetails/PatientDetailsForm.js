@@ -6,7 +6,9 @@ import { doc, setDoc } from 'firebase/firestore';
 
 function PatientDetailsForm({ route, navigation }) {
 
-  const { userId,name } = route.params;
+  const { userId} = route.params;
+  const { patientDetailsData } = route.params;
+  console.log("test patientdetails",userId,patientDetailsData)
  // Get userId from route params
   const [age, setAge] = useState('');
   const [height, setHeight] = useState('');
@@ -19,7 +21,7 @@ function PatientDetailsForm({ route, navigation }) {
     try {
       await setDoc(doc(FIRESTORE_DB, 'patientDetails', userId), {
         patientId:userId,
-        patientName:name,
+        patientName:'name',
         age,
         height,
         weight,

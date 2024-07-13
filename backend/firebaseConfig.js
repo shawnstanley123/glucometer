@@ -2,10 +2,11 @@ import {initializeApp,getApps,getApp} from 'firebase/app'
 import { initializeAuth, getReactNativePersistence,getAuth } from 'firebase/auth';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {getFirestore} from 'firebase/firestore'
-
+import { getDatabase } from 'firebase/database';
 const firebaseConfig = { 
     apiKey: "AIzaSyBqc-nV9tcvNULDOOKmm1Jd4QpfE1Im_Y4",
     authDomain: "gluco-meter.firebaseapp.com",
+    databaseURL: "https://gluco-meter-default-rtdb.firebaseio.com/",
     projectId: "gluco-meter",
     storageBucket: "gluco-meter.appspot.com",
     messagingSenderId: "33149749723",
@@ -29,7 +30,7 @@ if (!getApps().length) {
 }
 
 export {FIREBASE_APP,FIREBASE_AUTH}
-
+ export const REALTIME_DB = getDatabase(FIREBASE_APP);
   export const FIRESTORE_DB = getFirestore(FIREBASE_APP);
 
 

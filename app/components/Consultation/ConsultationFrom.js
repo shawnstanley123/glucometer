@@ -7,6 +7,8 @@ import { sendNotificationToDoctor } from '../Notifications/PushNotificationsServ
 
 function ConsultationForm({ route, navigation }) {
     const { userDataa } = route.params || {};
+    const {liveData} = route.params || 0;
+    console.log(liveData)
     const [doctorId, setDoctorId] = useState(null); // Default doctor ID or fetch dynamically
     const [patientNotes, setPatientNotes] = useState('');
     const [consultationDetails, setConsultationDetails] = useState({
@@ -14,7 +16,7 @@ function ConsultationForm({ route, navigation }) {
         age: userDataa?.age || '',
         height: '',
         weight: '',
-        bloodSugarLevel: userDataa?.bloodSugarLevel || '',
+        bloodSugarLevel: liveData || '',
     });
     console.log(consultationDetails)
 
@@ -60,6 +62,10 @@ function ConsultationForm({ route, navigation }) {
 
     try {
       const user = FIREBASE_AUTH.currentUser;
+      if(doctorId==null){
+        Alert.alert('You must be assigned to a doctor to send consultation');
+        return;
+      }
       if (user) {
         const consultationRef = await addDoc(collection(FIRESTORE_DB, 'consultations'), {
           ...consultationDetails,
@@ -89,7 +95,7 @@ function ConsultationForm({ route, navigation }) {
         value={consultationDetails.patientName}
         onChangeText={(text) => setConsultationDetails({ ...consultationDetails, patientName: text })}
         placeholder="Enter your name"
-        editable={false}
+      
       />
 
       <Text style={styles.label}>Age</Text>
@@ -99,7 +105,7 @@ function ConsultationForm({ route, navigation }) {
         onChangeText={(text) => setConsultationDetails({ ...consultationDetails, age: text })}
         placeholder="Enter your age"
         keyboardType="numeric"
-        editable={false}
+  
       />
 
       <Text style={styles.label}>Height (cm)</Text>
@@ -127,7 +133,7 @@ function ConsultationForm({ route, navigation }) {
         onChangeText={(text) => setConsultationDetails({ ...consultationDetails, bloodSugarLevel: text })}
         placeholder="Enter your blood sugar level"
         keyboardType="numeric"
-        editable={false}
+     
       />
 
       <Text style={styles.label}>Patient Notes</Text>

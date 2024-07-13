@@ -25,11 +25,13 @@ const consumptionOptions = [
     { label: 'Filter by Consumption', value: 'consumption' },
     { label: 'Filter by Location', value: 'location' },
   ];
-function ResultsScreen(props) {
+function ResultsScreen({ route, navigation }) {
+  const {finalValue} = route.params || 0;
+  console.log(finalValue,"final")
 const [selectedFilter, setSelectedFilter] = useState(null); // Track selected filter
   const [selectedOption, setSelectedOption] = useState(null); // Track selected option
   const [filteredDataArray, setFilteredDataArray] = useState([]); // Store filtered data
-  const [data, setData] = useState(84); // Placeholder for data
+  const [data, setData] = useState(finalValue); // Placeholder for data
   const [locationRendered,setLocationRendered] = useState(false)
 
   // Function to fetch location-based data
@@ -140,7 +142,7 @@ const [selectedFilter, setSelectedFilter] = useState(null); // Track selected fi
       )}
             </View>
             <View className="h-[75%] bg-white p-7"  style={styles.roundedTop}>
-              {data>83?(
+              {data>170?(
                 <View className="h-full">
                 <Text className="font-bold mb-5">Recommended diet</Text>
                 { locationRendered  && (<View>

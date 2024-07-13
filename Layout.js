@@ -13,6 +13,9 @@ import Doctor from './app/components/Doctor/Doctor';
 import ConsultationForm from './app/components/Consultation/ConsultationFrom';
 import PatientDetailsForm from './app/components/PatientDetails/PatientDetailsForm';
 import PatientDetail from './app/components/PatientDetail/PatientDetail';
+import {GestureHandlerRootView} from 'react-native-gesture-handler'
+import ViewConsultation from './app/components/Consultation/ViewConsultation';
+import SetAlarms from './app/components/SetAlarms/SetAlarms';
 const Stack = createStackNavigator();
 const InsideStack = createStackNavigator();
 
@@ -23,7 +26,7 @@ function InsideLayout() {
       <InsideStack.Screen name="Test" component={Testing} options={{ headerShown: false }} />
       <InsideStack.Screen name="Results" component={ResultsScreen} options={{ headerShown: false }} />
       <InsideStack.Screen name="ConsultationForm" component={ConsultationForm} />
-      
+      <InsideStack.Screen name="SetAlarms" component={SetAlarms} />
     </InsideStack.Navigator>
   );
 }
@@ -32,6 +35,7 @@ function DoctorLayout(){
     <InsideStack.Navigator>
       <InsideStack.Screen name="Test" component={Doctor} options={{ headerShown: false }} />
       <InsideStack.Screen name="PatientDetail" component={PatientDetail} />
+      <InsideStack.Screen name="ConsultationDetail" component={ViewConsultation} />
     </InsideStack.Navigator>
   );
 }
@@ -49,6 +53,7 @@ function App() {
 console.log(role)
   return (
     <NavigationContainer>
+      <GestureHandlerRootView>
       <Header />
       <Stack.Navigator initialRouteName="Register">
         {user ? (
@@ -69,6 +74,7 @@ console.log(role)
           <Stack.Screen name="Register" component={Register} options={{ headerShown: false }} />
         )}
       </Stack.Navigator>
+    </GestureHandlerRootView>
     </NavigationContainer>
   );
 }
