@@ -129,6 +129,7 @@ export default function Doctor({ navigation }) {
       });
 
       Alert.alert('Success', `Patient ${patientData.name} added successfully`);
+      fetchInitialData()
     } catch (error) {
       console.log('Error adding patient:', error);
       Alert.alert('Error', 'Failed to add patient. Please try again.');

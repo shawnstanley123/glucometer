@@ -57,13 +57,11 @@ function Testing({ navigation }) {
   }, []);
 
   const startTest = () =>{
-    console.log("called")
     setShowGraph(true);
     setTimeout(()=>{
       setShowGraph(false);
       setTestDone(true);      
       setFinalValue(liveDataRef1.current);
-      console.log('Final value set:', liveDataRef1.current);
       handleRetakeTest(liveDataRef1.current)
     },5000)
   }
@@ -99,12 +97,12 @@ function Testing({ navigation }) {
           console.log(patientDetailsData)
           setPatientDetails(patientDetailsData)
           const patientDetailsDoc1 = await getDoc(doc(FIRESTORE_DB, 'patientDetails', userId));
-      
+      console.log(patientDetailsDoc1,"hel")
           if (!patientDetailsDoc1.exists()) {
             console.log('No patient details found!');
             // Navigate to the PatientDetailsForm screen if no patient details are found
             navigation.navigate('PatientDetailsForm', { userId,patientDetailsData});
-            return null;
+            
           } 
         } else {
           console.log('No patient found!');
@@ -131,7 +129,6 @@ function Testing({ navigation }) {
 
 
   const handleRetakeTest = async (currentValue) => {
-    console.log("entering clled",user.uid)
     try {
       const patientDocRef = doc(FIRESTORE_DB, 'patientDetails', user.uid);
       const patientDoc = await getDoc(patientDocRef);

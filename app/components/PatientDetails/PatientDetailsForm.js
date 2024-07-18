@@ -8,7 +8,7 @@ function PatientDetailsForm({ route, navigation }) {
 
   const { userId} = route.params;
   const { patientDetailsData } = route.params;
-  console.log("test patientdetails",userId,patientDetailsData)
+
  // Get userId from route params
   const [age, setAge] = useState('');
   const [height, setHeight] = useState('');
@@ -21,7 +21,7 @@ function PatientDetailsForm({ route, navigation }) {
     try {
       await setDoc(doc(FIRESTORE_DB, 'patientDetails', userId), {
         patientId:userId,
-        patientName:'name',
+        patientName: patientDetailsData.name,
         age,
         height,
         weight,
@@ -40,6 +40,7 @@ function PatientDetailsForm({ route, navigation }) {
 
   return (
     <View style={styles.container}>
+      <Text className="text-center font-semibold text-base">Enter your details</Text>
       <Text style={styles.label}>Age</Text>
       <TextInput
         style={styles.input}
@@ -85,11 +86,10 @@ function PatientDetailsForm({ route, navigation }) {
         onChangeText={setAllergies}
         placeholder="Enter your allergies"
       />
-        <TouchableOpacity
-         
-          onPress={() => FIREBASE_AUTH.signOut()}
-        ><Text>sign out</Text></TouchableOpacity>
-      <Button title="Submit" onPress={handleSubmit} />
+      
+      <TouchableOpacity onPress={handleSubmit}  className="bg-slate-600 py-3 rounded-md">
+        <Text className="text-white text-center">SUBMIT</Text>
+      </TouchableOpacity>
     </View>
   );
 }
