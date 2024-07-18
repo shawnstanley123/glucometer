@@ -67,7 +67,7 @@ export default StyleSheet.create({
       },
       buttonText: {
         color: 'white',
-        fontSize: 18,
+        fontSize: 13,
       },
       width: {
         width: '100%',

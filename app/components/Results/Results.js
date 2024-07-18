@@ -6,34 +6,73 @@ import DropdownComponent from '../DropDown/Dropdown';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import nonveg from '../../data/nonveg.json'
+import exercises from '../../data/exercises.json'
+import tips from '../../data/tips.json'
+import { Tab, TabView } from '@rneui/themed';
 const consumptionOptions = [
     { label: 'Immediate Consumption', value: 'immediate' },
     { label: 'Regular Consumption', value: 'regular' },
   ];
   
   const locationOptions = [
+    // States
     { label: 'Andhra Pradesh', value: 'Andhra Pradesh' },
     { label: 'Arunachal Pradesh', value: 'Arunachal Pradesh' },
     { label: 'Assam', value: 'Assam' },
     { label: 'Bihar', value: 'Bihar' },
     { label: 'Chhattisgarh', value: 'Chhattisgarh' },
-    // Add all other states similarly
+    { label: 'Goa', value: 'Goa' },
+    { label: 'Gujarat', value: 'Gujarat' },
+    { label: 'Haryana', value: 'Haryana' },
+    { label: 'Himachal Pradesh', value: 'Himachal Pradesh' },
+    { label: 'Jharkhand', value: 'Jharkhand' },
+    { label: 'Karnataka', value: 'Karnataka' },
+    { label: 'Kerala', value: 'Kerala' },
+    { label: 'Madhya Pradesh', value: 'Madhya Pradesh' },
+    { label: 'Maharashtra', value: 'Maharashtra' },
+    { label: 'Manipur', value: 'Manipur' },
+    { label: 'Meghalaya', value: 'Meghalaya' },
+    { label: 'Mizoram', value: 'Mizoram' },
+    { label: 'Nagaland', value: 'Nagaland' },
+    { label: 'Odisha', value: 'Odisha' },
+    { label: 'Punjab', value: 'Punjab' },
+    { label: 'Rajasthan', value: 'Rajasthan' },
+    { label: 'Sikkim', value: 'Sikkim' },
+    { label: 'Tamil Nadu', value: 'Tamil Nadu' },
+    { label: 'Telangana', value: 'Telangana' },
+    { label: 'Tripura', value: 'Tripura' },
+    { label: 'Uttar Pradesh', value: 'Uttar Pradesh' },
+    { label: 'Uttarakhand', value: 'Uttarakhand' },
     { label: 'West Bengal', value: 'West Bengal' },
+    
+    // Union Territories
+    { label: 'Andaman and Nicobar Islands', value: 'Andaman and Nicobar Islands' },
+    { label: 'Chandigarh', value: 'Chandigarh' },
+    { label: 'Dadra and Nagar Haveli and Daman and Diu', value: 'Dadra and Nagar Haveli and Daman and Diu' },
+    { label: 'Lakshadweep', value: 'Lakshadweep' },
+    { label: 'Delhi', value: 'Delhi' },
+    { label: 'Puducherry', value: 'Puducherry' },
+    { label: 'Ladakh', value: 'Ladakh' },
+    { label: 'Jammu and Kashmir', value: 'Jammu and Kashmir' }
   ];
+  
   
   const filterOptions = [
     { label: 'Filter by Consumption', value: 'consumption' },
     { label: 'Filter by Location', value: 'location' },
   ];
+  const suitableExercises  = exercises
+  const healthTips = tips 
 function ResultsScreen({ route, navigation }) {
   const {finalValue} = route.params || 0;
-  console.log(finalValue,"final")
+  const exerciseCategories = Object.keys(suitableExercises['Suitable Exercises']);
+  const tipCategories = Object.keys(healthTips['Health Tips']);
 const [selectedFilter, setSelectedFilter] = useState(null); // Track selected filter
   const [selectedOption, setSelectedOption] = useState(null); // Track selected option
   const [filteredDataArray, setFilteredDataArray] = useState([]); // Store filtered data
   const [data, setData] = useState(finalValue); // Placeholder for data
   const [locationRendered,setLocationRendered] = useState(false)
-
+  const [index, setIndex] = React.useState(0);
   // Function to fetch location-based data
   const getLocationData = () => {
     if (selectedFilter === 'location') {
@@ -141,8 +180,44 @@ const [selectedFilter, setSelectedFilter] = useState(null); // Track selected fi
         <Text style={styles.text}>Selected Option: {selectedOption}</Text>
       )}
             </View>
-            <View className="h-[75%] bg-white p-7"  style={styles.roundedTop}>
-              {data>170?(
+            <View className="h-[75%] bg-white"  style={styles.roundedTop}>
+              <View className="h-full">
+            <Tab
+      value={index}
+      onChange={(e) => setIndex(e)}
+      indicatorStyle={{
+        backgroundColor: '#4d98eb',
+        height: 5,
+        borderTopLeftRadius: 40,
+      }}
+      style={styles.roundedTop}
+      variant="primary"
+      className="p-7"
+    >
+      <Tab.Item
+       
+        title="Food"
+        titleStyle={{ fontSize: 12 , }}
+        icon={{ name: 'fast-food-outline', type: 'ionicon', color: 'white' }}
+        containerStyle={{ backgroundColor: 'black' , borderTopLeftRadius: 40,}}
+      />
+      <Tab.Item
+        title="Exercises"
+        titleStyle={{ fontSize: 12 }}
+        icon={{ name: 'barbell-outline', type: 'ionicon', color: 'white' }}
+        containerStyle={{ backgroundColor: 'black'}}
+      />
+      <Tab.Item
+        title="Tips"
+        titleStyle={{ fontSize: 12 }}
+        icon={{ name: 'infinite-outline', type: 'ionicon', color: 'white' }}
+        containerStyle={{ backgroundColor: 'black' , borderTopRightRadius: 40,}}
+      />
+    </Tab>
+
+    <TabView value={index} onChange={setIndex} animationType="spring" className="h-20 w-full">
+      <TabView.Item style={{ flex:1, padding:25 }} className="w-full">
+      {data>170?(
                 <View className="h-full">
                 <Text className="font-bold mb-5">Recommended diet</Text>
                 { locationRendered  && (<View>
@@ -211,16 +286,7 @@ const [selectedFilter, setSelectedFilter] = useState(null); // Track selected fi
                   </Text>
                   </ScrollView>
                 )}
-                <View className="flex flex-row items-end absolute bottom-12 ">
-                  <TouchableOpacity  className="bg-teal-500 w-28 h-12 rounded-md flex items-center justify-center ml-2 mr-2">
-                    <Text className="text-white">Tips</Text></TouchableOpacity> 
-                  <TouchableOpacity className="bg-slate-100 w-28 h-12 rounded-md flex items-center justify-center ml-2 mr-2">
-                  <Text className="text-teal-500">Share</Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity className="bg-neutral-950 w-28 h-12 rounded-md flex items-center justify-center ml-2 mr-2">
-                  <Text className="text-white">Tips</Text>
-                  </TouchableOpacity>
-                </View>
+               
               </View>
               ):(
               <View className="h-full">
@@ -268,21 +334,66 @@ const [selectedFilter, setSelectedFilter] = useState(null); // Track selected fi
                   </View>
                 )}
                     
-                <View className="flex flex-row items-end absolute bottom-12 ">
-                  <TouchableOpacity  className="bg-teal-500 w-28 h-12 rounded-md flex items-center justify-center ml-2 mr-2">
-                    <Text className="text-white">Tips</Text></TouchableOpacity> 
-                  <TouchableOpacity className="bg-slate-100 w-28 h-12 rounded-md flex items-center justify-center ml-2 mr-2">
-                  <Text className="text-teal-500">Share</Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity className="bg-neutral-950 w-28 h-12 rounded-md flex items-center justify-center ml-2 mr-2">
-                  <Text className="text-white">Tips</Text>
-                  </TouchableOpacity>
-                </View>
+               
                
                 
               </View>
               )}
+      </TabView.Item>
+      <TabView.Item style={{flex:1, padding:25}}>
+        <View className="my-3 mb-4 h-full pb-20">
+      <Text className="font-bold mb-5">Suitable Exercises</Text>
+      <ScrollView className="flex-1 bg-white">
+      {exerciseCategories.map((category) => (
+        <View key={category} className="mb-5 rounded-lg overflow-hidden h-36">
+          <ImageBackground 
+            source={{ uri: suitableExercises['Suitable Exercises'][category].image }} 
+            className="w-full h-full justify-center items-center" 
+            imageStyle={{ borderRadius: 10 }}
+          >
+            <View className="relative rounded-lg h-full w-full">
+            <View className="absolute inset-0 bg-black opacity-60 p-3 rounded-lg h-full w-full"/>
+            <View className="relative p-3">
+              <Text className="text-lg font-bold text-white mb-2">{category}</Text>
+              {suitableExercises['Suitable Exercises'][category].exercises.map((exercise, index) => (
+                <Text key={index} className="text-white mb-1">{exercise}</Text>
+              ))}
+            </View>
+            </View>
+          </ImageBackground>
+        </View>
+      ))}
+    </ScrollView>
+    </View>
+      </TabView.Item>
+      <TabView.Item style={{flex:1, padding:25 }}>
+      <View className="my-3 mb-4 h-full pb-20">
+      <Text className="font-bold mb-5">Health Tips</Text>
+      <ScrollView className="flex-1 bg-white">
+        {tipCategories.map((category) => (
+          <View key={category} className="mb-5 rounded-lg overflow-hidden">
+            <ImageBackground
+              source={{ uri: healthTips['Health Tips'][category].image }}
+              className="w-full h-36"
+              imageStyle={{ borderRadius: 10 }}
+            >
+              <View className="absolute inset-0 bg-black opacity-60 rounded-lg h-full w-full" />
+              <View className="p-4">
+                <Text className="text-lg font-bold text-white mb-2">{category}</Text>
+                {healthTips['Health Tips'][category].tips.map((tip, index) => (
+                  <Text key={index} className="text-white mb-1">{tip}</Text>
+                ))}
+              </View>
+            </ImageBackground>
+          </View>
+        ))}
+      </ScrollView>
+    </View>
+      </TabView.Item>
+    </TabView>
+             
               
+           </View>
             </View>
              </ImageBackground>
     

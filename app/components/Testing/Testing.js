@@ -37,15 +37,7 @@ function Testing({ navigation }) {
       }
       setLoading(false);
     });
-    // const unsubscribe = onSnapshot(docRef, (docSnap) => {
-    //   if (docSnap.exists()) {
-    //     setLiveData(docSnap.data().liveData);
-    //     console.log(docSnap.data().zout)
-    //   } else {
-    //     console.log('No such document!');
-    //   }
-    //   setLoading(false);
-    // });
+
 
     return () => unsubscribe();
   }, []);
@@ -136,20 +128,7 @@ function Testing({ navigation }) {
     }
   };
 
-  const fetchData = async () => {
-    try {
-      const response = await fetch('http://192.168.1.148/');
-      const text = await response.text();
-      if (text === 'Out of range') {
-        setValue(0);
-      } else {
-        setValue(parseInt(text));
-      }
-    } catch (error) {
-      console.error('Error fetching soil moisture:', error);
-      setValue('Error fetching data');
-    }
-  };
+
 
   const handleRetakeTest = async (currentValue) => {
     console.log("entering clled",user.uid)
@@ -188,16 +167,16 @@ function Testing({ navigation }) {
 
   return (
     <SafeAreaView className='flex-1 w-full'>
-      <View className="rounded overflow-hidden shadow-lg bg-white m-4">
+      <View className="overflow-hidden shadow-lg bg-white ">
         <ImageBackground
           source={{ uri: "https://i.pinimg.com/originals/db/64/d0/db64d058a37059774c3218315d377441.jpg" }}
-          className="w-full h-40"
+          className="w-full h-25"
         >
           <View className="flex flex-row max-w-sm">
             <View className="">
               <View className="px-6 py-4">
                 <Text className="font-bold text-xl mb-2 text-white">{userDataa.name}</Text>
-                <Text className="text-sm text-white mr-16">Invite Code: {patientDetails?.friendCode}</Text>
+                <Text className="text-sm text-white mr-20">Invite Code: {patientDetails?.friendCode}</Text>
               </View>
              
             </View>
@@ -212,10 +191,10 @@ function Testing({ navigation }) {
           </View>
         </ImageBackground>
       </View>
-      <View className="rounded-lg overflow-hidden shadow-lg bg-white m-4 p-3">
-        <Text className="px-4 py-3 text-lg font-semibold">Blood Sugar level</Text>
-        <View className="w-full border-t border-gray-400 my-2" />
-        <View className="py-10">
+      <View className="overflow-hidden shadow-lg bg-white">
+        <Text className="px-4 py-2 text-base font-semibold text-center bg-slate-500 text-white">Blood Sugar level</Text>
+    
+        <View className="py-6">
           <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', flexWrap: 'wrap', alignItems: 'center' }}>
            {showGraph&&(<Donut percentage={liveData} color={'green'} delay={500 + 100} max={100} />)}
            {!showGraph&&testDone&&(
@@ -251,31 +230,65 @@ function Testing({ navigation }) {
           </View>
         </View>
       </View>
-      <View className="rounded-lg overflow-hidden shadow-lg m-2 p-3">
-        <TouchableOpacity
-          style={[styles.button, styles.width, { padding: 10, backgroundColor: 'white' }]}
-          onPress={() => navigation.navigate('Results',{finalValue:finalValue})}
-        >
-          <Text style={[styles.buttonText, styles.fontBold, { color: '#448044' }]}>Show Results</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.button, styles.width, { padding: 10, backgroundColor: 'white' }]}
-          onPress={() => FIREBASE_AUTH.signOut()}
-        >
-          <Text style={[styles.buttonText, styles.fontBold, { color: '#448044' }]}>Logout</Text>
-        </TouchableOpacity>
-        
-        <TouchableOpacity
+      <View className="overflow-hidden shadow-lg rounded-t-lg mt-2 p-3 bg-white h-96">
+        <View className="h-72">
+       {testDone && finalValue<70 && (
+         <View>
+         <Text className="text-base font-semibold text-center">You are under hypoglycemia</Text>
+         <View className="w-full border-t border-gray-400 my-2" />
+        <Text className="text-sm text-center font-semibold my-3">Immediate Actions</Text>
+        <Text className="my-2">1. Stop exercising immediately.</Text>
+         <Text className="my-2">2. Consume 15-20 grams of fast-actng carbohydrates (e.g., glucose tablets, juice, or regular soda).</Text>
+         <Text className="my-2">3. Recheck your blood sugar afer 15 minutes. If it's stll low, consume another 15-20 grams of 
+         carbohydrates.</Text>
+         <Text className="my-2">4. Once blood sugar is back to normal, eat a snack or meal to stabilize levels.</Text>
+         <TouchableOpacity
           style={[styles.button, styles.width, { padding: 10, backgroundColor: 'white' }]}
           onPress={() => navigateToConsultationForm()} // Navigate to ConsultationForm screen
+          className="bg-slate-600"
         >
-          <Text style={[styles.buttonText, styles.fontBold, { color: '#448044' }]}>Send consultation</Text>
+          <Text className="text-white text-center">Consult Doctor</Text>
         </TouchableOpacity>
-<TouchableOpacity
-        style={[styles.button, styles.width, { padding: 10, backgroundColor: 'white' }]}
+         </View>
+       )}
+        {testDone&&finalValue>180 && (
+         <View>
+         <Text className="text-base font-semibold text-center">You are under hyperglycemia</Text>
+         <View className="w-full border-t border-gray-400 my-2" />
+         <Text className="text-sm text-center font-semibold my-3">Immediate Actions</Text>
+         <Text className="my-2">1. Drink water to help fush excess sugar from your blood.</Text>
+         <Text className="my-2">2. Adjust your diet to include lower-carb optons and avoid sugary foods.</Text>
+         <Text className="my-2">3. Increase physical actvity if safe to do so.</Text>
+         <TouchableOpacity
+          className="bg-slate-600 py-2 mt-8 rounded"
+          onPress={() => navigateToConsultationForm()} // Navigate to ConsultationForm screen
+        >
+          <Text className="text-white text-center font-semibold">Consult Doctor</Text>
+        </TouchableOpacity>
+ 
+         </View>
+       )}
+       </View>
+        <View className="flex flex-row justify-between">
+      <TouchableOpacity
+        className="flex-1 bg-white p-4 shadow-lg shadow-slate-300 items-center"
+        onPress={() => navigation.navigate('Results', { finalValue })}
+      >
+        <Text className="text-gray-800 text-sm font-semibold mt-2">Show Results</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        className="flex-1 bg-white p-4 shadow-lg shadow-slate-300 items-center"
+        onPress={() => FIREBASE_AUTH.signOut()}
+      >
+        <Text className="text-gray-800 text-sm font-semibold items-center mt-2">Logout</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        className="flex-1 bg-white p-4 shadow-lg shadow-slate-300 items-center"
         onPress={() => navigation.navigate('SetAlarms', { consultationId: user.uid })}
-      ><Text style={[styles.buttonText, styles.fontBold, { color: '#448044' }]}>Show Routines</Text></TouchableOpacity>
-       
+      >
+        <Text className="text-gray-800 text-sm font-semibold mt-2">Show Routines</Text>
+      </TouchableOpacity>
+    </View>
       </View>
     </SafeAreaView>
   );

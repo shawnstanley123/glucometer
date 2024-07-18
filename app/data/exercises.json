@@ -1,0 +1,45 @@
+{
+    "Suitable Exercises": {
+      "Walking": {
+        "exercises": [
+          "Brisk Walks: Regular walking in parks or around the neighborhood.",
+          "Treadmill Walking: Indoor exercise option for unfavorable weather."
+        ],
+        "image": "https://i.insider.com/5eea8a43988ee356890d7de3?width=700"
+      },
+      "Yoga": {
+        "exercises": [
+          "Gentle Asanas: Shavasana, Balasana, Sukhasana.",
+          "Pranayama: Anulom Vilom, Bhramari for relaxation and stress management."
+        ],
+        "image": "https://geopelie.com/cdn/shop/articles/jeune_femme_dans_une_posture_de_yoga_d_equilibre.jpg?v=1651737069"
+      },
+      "Cycling": {
+        "exercises": [
+          "Leisure Cycling: Comfortable pace in parks or safe areas.",
+          "Stationary Biking: Indoor option with controlled intensity and duration."
+        ],
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/20220424_Liege_Bastogne_Liege117_edited_by_PetarM.jpg/1200px-20220424_Liege_Bastogne_Liege117_edited_by_PetarM.jpg"
+      },
+      "Strength Training": {
+        "exercises": [
+          "Light Weights: Light dumbbells or resistance bands for bicep curls, leg lifts.",
+          "Bodyweight Exercises: Wall push-ups, seated leg lifts, gentle squats."
+        ],
+        "image": "https://static.wixstatic.com/media/5af649_62b7d2739ff04894867c09f328bc3232~mv2.jpeg/v1/fill/w_640,h_426,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/5af649_62b7d2739ff04894867c09f328bc3232~mv2.jpeg"
+      },
+      "Swimming": {
+        "exercises": [
+          "Moderate Swimming: Leisurely swimming avoiding high-intensity laps.",
+          "Water Aerobics: Low-impact water exercises."
+        ],
+        "image": "https://img.olympics.com/images/image/private/t_s_pog_staticContent_hero_xl/f_auto/primary/piultz6nngltq541xmju"
+      },
+      "Dancing": {
+        "exercises": [
+          "Low-Impact Dancing: Simple folk dances, low-intensity Zumba."
+        ],
+        "image": "https://image.wedmegood.com/resized/450X/uploads/project/76141/1580820901_RP_20200125_SAN1334.jpg"
+      }
+    }
+  }

@@ -1,0 +1,43 @@
+{
+    "Health Tips": {
+      "Monitor Blood Sugar Levels": {
+        "image": "https://media.istockphoto.com/id/836372378/photo/test-blood-glucose-for-diabetes.jpg?s=612x612&w=0&k=20&c=9uI9eWBRwLXuQTp4zaD0ki1mVurloe-VXEdHZFipisM=", 
+        "tips": [
+          "Check blood sugar levels before, during, and after exercise to prevent hypoglycemia.",
+          "Keep a record of blood sugar responses to different exercises."
+        ]
+      },
+      "Adjust Timing": {
+        "image": "https://www.wikihow.com/images/thumb/f/f6/Set-a-Digital-Watch-Step-7-Version-3.jpg/550px-nowatermark-Set-a-Digital-Watch-Step-7-Version-3.jpg", 
+        "tips": [
+          "Exercise after meals to help stabilize blood sugar levels.",
+          "Avoid exercise during peak insulin or medication action times."
+        ]
+      },
+      "Carry Carbohydrates": {
+        "image": "https://cdn.mos.cms.futurecdn.net/M8bPsdvevn52NcHJj9XJk6-1200-80.jpg", 
+        "tips": [
+          "Always have fast-acting carbohydrates (glucose tablets, candy, or juice) readily available in case of low blood sugar."
+        ]
+      },
+      "Stay Hydrated": {
+        "image": "https://www.usatoday.com/gcdn/presto/2023/07/26/USAT/dced5aec-f5a4-481c-8ed8-686f9e084a5d-Untitled_design_88.png?width=660&height=372&fit=crop&format=pjpg&auto=webp", 
+        "tips": [
+          "Drink plenty of water before, during, and after exercise to stay hydrated."
+        ]
+      },
+      "Wear Appropriate Clothing": {
+        "image": "https://www.theforage.com/blog/wp-content/uploads/2022/12/business-attire-scaled.jpg", 
+        "tips": [
+          "Use comfortable, breathable clothing and proper footwear to prevent injuries."
+        ]
+      },
+      "Regular Meals and Snacks": {
+        "image": "https://www.eatingwell.com/thmb/haf6W3YL6YlqlG_ih7gb6ZAmbxI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/article_77540_the-10-best-snacks-for-weight-loss_-02-d68888c67c3342d096204f9b44451f7e.jpg", 
+        "tips": [
+          "Eat balanced meals and snacks regularly to maintain stable blood sugar levels throughout the day."
+        ]
+      }
+    }
+  }
+  
