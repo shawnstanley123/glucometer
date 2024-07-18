@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Text, SafeAreaView, View, Button, TouchableOpacity, ImageBackground, Alert, ActivityIndicator } from 'react-native';
+import { Text, SafeAreaView, View, Button, TouchableOpacity, ImageBackground, Alert, ActivityIndicator,ScrollView } from 'react-native';
 import styles from './Testingstyles';
 import Donut from '../Donut/DonutChart';
 import { onAuthStateChanged } from 'firebase/auth';
@@ -167,6 +167,7 @@ function Testing({ navigation }) {
 
   return (
     <SafeAreaView className='flex-1 w-full'>
+      <ScrollView>
       <View className="overflow-hidden shadow-lg bg-white ">
         <ImageBackground
           source={{ uri: "https://i.pinimg.com/originals/db/64/d0/db64d058a37059774c3218315d377441.jpg" }}
@@ -290,6 +291,7 @@ function Testing({ navigation }) {
       </TouchableOpacity>
     </View>
       </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
