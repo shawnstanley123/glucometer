@@ -10,14 +10,13 @@ import { ref, onValue } from 'firebase/database';
 import SetAlarms from '../SetAlarms/SetAlarms';
 import { LinearGradient } from 'expo-linear-gradient';
 function Testing({ navigation }) {
-  const [value, setValue] = useState(0);
-  const [bgColor, setBgColor] = useState('green');
+
   const [user, setUser] = useState(null);
   const [role, setRole] = useState(null);
   const [actualUserData, setActualUserData] = useState(null);
   const [userDataa, setUserDataa] = useState({ name: '', age: '21', bloodSugarLevel: liveData });
-  const [soilMoisture, setSoilMoisture] = useState(0);
-  const [intervalId, setIntervalId] = useState(null);
+
+
   const [liveData, setLiveData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [showGraph,setShowGraph] = useState(false)
@@ -232,7 +231,7 @@ function Testing({ navigation }) {
         <View className="h-72">
        {testDone && finalValue<70 && (
          <View>
-         <Text className="text-base font-semibold text-center">You are under hypoglycemia</Text>
+         <Text className="text-base font-semibold text-center">You are hypoglycemic</Text>
          <View className="w-full border-t border-gray-400 my-2" />
         <Text className="text-sm text-center font-semibold my-3">Immediate Actions</Text>
         <Text className="my-2">1. Stop exercising immediately.</Text>
@@ -251,7 +250,7 @@ function Testing({ navigation }) {
        )}
         {testDone&&finalValue>180 && (
          <View>
-         <Text className="text-base font-semibold text-center">You are under hyperglycemia</Text>
+         <Text className="text-base font-semibold text-center">You are hyperglycemic</Text>
          <View className="w-full border-t border-gray-400 my-2" />
          <Text className="text-sm text-center font-semibold my-3">Immediate Actions</Text>
          <Text className="my-2">1. Drink water to help fush excess sugar from your blood.</Text>
