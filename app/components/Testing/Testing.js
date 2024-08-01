@@ -9,6 +9,8 @@ import { registerForPushNotificationsAsync } from '../Notifications/PushNotifica
 import { ref, onValue } from 'firebase/database';
 import SetAlarms from '../SetAlarms/SetAlarms';
 import { LinearGradient } from 'expo-linear-gradient';
+import LottieView from 'lottie-react-native';
+
 function Testing({ navigation }) {
 
   const [user, setUser] = useState(null);
@@ -163,6 +165,7 @@ function Testing({ navigation }) {
 
   return (
     <SafeAreaView className='flex-1 w-full'>
+       
       <ScrollView>
       <View className="overflow-hidden shadow-lg bg-white ">
         <ImageBackground
@@ -248,7 +251,7 @@ function Testing({ navigation }) {
         </TouchableOpacity>
          </View>
        )}
-        {testDone&&finalValue>180 && (
+        {testDone&&finalValue>140 && (
          <View>
          <Text className="text-base font-semibold text-center">You are hyperglycemic</Text>
          <View className="w-full border-t border-gray-400 my-2" />
@@ -256,6 +259,27 @@ function Testing({ navigation }) {
          <Text className="my-2">1. Drink water to help fush excess sugar from your blood.</Text>
          <Text className="my-2">2. Adjust your diet to include lower-carb optons and avoid sugary foods.</Text>
          <Text className="my-2">3. Increase physical actvity if safe to do so.</Text>
+         <TouchableOpacity
+          className="bg-slate-600 py-2 mt-8 rounded"
+          onPress={() => navigateToConsultationForm()} // Navigate to ConsultationForm screen
+        >
+          <Text className="text-white text-center font-semibold">Consult Doctor</Text>
+        </TouchableOpacity>
+ 
+         </View>
+       )}
+        {testDone&&(finalValue>=70&&finalValue<=140) && (
+         <View>
+             <LottieView
+        source={require('../../data/confetti.json')}
+        autoPlay
+        loop={false}
+        style={{ width: 500, height: 500, position: 'absolute', top:0,left:0,right:0,bottom:0,zIndex:10 }} 
+      />
+         <Text className=" text-base font-semibold text-center">Congratulations!!!</Text>
+         <View className="w-full border-t border-gray-400 my-2" />
+         <Text className="text-sm text-center font-semibold my-3 text-green-600">Your result is Normal</Text>
+         <Text className="my-2 text-center">Do you still want to consult a Doctor?</Text>
          <TouchableOpacity
           className="bg-slate-600 py-2 mt-8 rounded"
           onPress={() => navigateToConsultationForm()} // Navigate to ConsultationForm screen
@@ -287,6 +311,7 @@ function Testing({ navigation }) {
       </TouchableOpacity>
     </View>
       </View>
+
       </ScrollView>
     </SafeAreaView>
   );

@@ -217,7 +217,7 @@ const [selectedFilter, setSelectedFilter] = useState(null); // Track selected fi
 
     <TabView value={index} onChange={setIndex} animationType="spring" className="h-20 w-full">
       <TabView.Item style={{ flex:1, padding:25 }} className="w-full">
-      {data>170?(
+      {data>70?(
                 <View className="h-full">
                 <Text className="font-bold mb-5">Recommended diet</Text>
                 { locationRendered  && (<View>

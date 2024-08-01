@@ -21,7 +21,7 @@ function PatientDetailsForm({ route, navigation }) {
     try {
       await setDoc(doc(FIRESTORE_DB, 'patientDetails', userId), {
         patientId:userId,
-        patientName: patientDetailsData.name,
+        patientName: patientDetailsData?.name,
         age,
         height,
         weight,
