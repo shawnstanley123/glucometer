@@ -28,25 +28,28 @@ console.log(routines[0])
     fetchRoutines();
   }, [consultationId]);
 
-  const handleSetAlarms = () => {
+  const handleSetAlarms = async () => {
+    try {
+      for (const routine of routines[0]?.routines || []) {
+        const trigger = new Date();
+        const [hours, minutes] = routine.time.split(':').map(Number);
+        trigger.setHours(hours, minutes, 0, 0); // setHours with hours, minutes, seconds, milliseconds
   
-    routines[0].routines.forEach(routine => {
-      const trigger = new Date();
-      const [hours, minutes] = routine.time.split(':').map(Number);
-      trigger.setHours(hours);
-      trigger.setMinutes(minutes);
-      trigger.setSeconds(0);
-
-      Notifications.scheduleNotificationAsync({
-        content: {
-          title: "Routine Reminder",
-          body: routine.description,
-        },
-        trigger,
-      });
-    });
-    Alert.alert('Success', 'Alarms have been set for all routines.');
+        await Notifications.scheduleNotificationAsync({
+          content: {
+            title: "Routine Reminder",
+            body: routine.description,
+          },
+          trigger,
+        });
+      }
+      Alert.alert('Success', 'Alarms have been set for all routines.');
+    } catch (error) {
+      console.error("Error setting alarms:", error);
+      Alert.alert('Error', 'Failed to set alarms. Please try again.');
+    }
   };
+  
 
   return (
     <View style={{ padding: 20 }}>

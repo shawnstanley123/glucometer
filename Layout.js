@@ -16,6 +16,7 @@ import PatientDetail from './app/components/PatientDetail/PatientDetail';
 import {GestureHandlerRootView} from 'react-native-gesture-handler'
 import ViewConsultation from './app/components/Consultation/ViewConsultation';
 import SetAlarms from './app/components/SetAlarms/SetAlarms';
+import CreateRoutine from './app/components/Routine/CreateRoutine';
 const Stack = createStackNavigator();
 const InsideStack = createStackNavigator();
 
@@ -26,6 +27,7 @@ function InsideLayout() {
       <InsideStack.Screen name="Test" component={Testing} options={{ headerShown: false }} />
       <InsideStack.Screen name="Results" component={ResultsScreen} options={{ headerShown: false }} />
       <InsideStack.Screen name="ConsultationForm" component={ConsultationForm} />
+      <InsideStack.Screen name="CreateRoutine" component={CreateRoutine} />
       <InsideStack.Screen name="SetAlarms" component={SetAlarms} />
     </InsideStack.Navigator>
   );
