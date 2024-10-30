@@ -17,6 +17,7 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler'
 import ViewConsultation from './app/components/Consultation/ViewConsultation';
 import SetAlarms from './app/components/SetAlarms/SetAlarms';
 import CreateRoutine from './app/components/Routine/CreateRoutine';
+import ShareData from './app/components/ShareData/ShareData';
 const Stack = createStackNavigator();
 const InsideStack = createStackNavigator();
 
@@ -29,6 +30,7 @@ function InsideLayout() {
       <InsideStack.Screen name="ConsultationForm" component={ConsultationForm} />
       <InsideStack.Screen name="CreateRoutine" component={CreateRoutine} />
       <InsideStack.Screen name="SetAlarms" component={SetAlarms} />
+      <InsideStack.Screen name="ShareData" component={ShareData} />
     </InsideStack.Navigator>
   );
 }
@@ -52,7 +54,7 @@ function UserLayout(){
 
 function App() {
   const { user, role } = useAuth();
-console.log(role)
+console.log(user)
   return (
     <NavigationContainer>
       <GestureHandlerRootView>

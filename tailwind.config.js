@@ -9,6 +9,9 @@ module.exports = {
       borderRadius: {
         'top': '0px 0px 0 0', // Custom border-radius for top corners
       },
+      boxShadow: {
+        'black': '0px 1px 10px rgba(0, 0, 0, 0.2)', // Pure black shadow
+      },
     },
   },
   plugins: [],

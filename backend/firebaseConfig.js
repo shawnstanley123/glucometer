@@ -3,6 +3,7 @@ import { initializeAuth, getReactNativePersistence,getAuth } from 'firebase/auth
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {getFirestore} from 'firebase/firestore'
 import { getDatabase } from 'firebase/database';
+import { getStorage } from 'firebase/storage';
 const firebaseConfig = { 
     apiKey: "AIzaSyBqc-nV9tcvNULDOOKmm1Jd4QpfE1Im_Y4",
     authDomain: "gluco-meter.firebaseapp.com",
@@ -30,6 +31,7 @@ if (!getApps().length) {
 }
 
 export {FIREBASE_APP,FIREBASE_AUTH}
+export const FIREBASE_STORAGE = getStorage(FIREBASE_APP);
  export const REALTIME_DB = getDatabase(FIREBASE_APP);
   export const FIRESTORE_DB = getFirestore(FIREBASE_APP);
 

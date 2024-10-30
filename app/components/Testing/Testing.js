@@ -35,7 +35,7 @@ function Testing({ navigation }) {
         liveDataRef1.current = snapshot.val();
       } else {
         console.log('No such document!');
-      }
+      } 
       setLoading(false);
     });
 
@@ -314,6 +314,12 @@ function Testing({ navigation }) {
         onPress={() => navigation.navigate('CreateRoutine', { consultationId: user.uid })}
       >
         <Text className="text-gray-800 text-sm font-semibold mt-2">Create Routine</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        className="flex-1 bg-white p-4 shadow-lg shadow-slate-300 items-center z-20"
+        onPress={() => navigation.navigate('ShareData', { userId: user.uid })}
+      >
+        <Text className="text-gray-800 text-sm font-semibold mt-2">Share Data</Text>
       </TouchableOpacity>
     </View>
       </View>
