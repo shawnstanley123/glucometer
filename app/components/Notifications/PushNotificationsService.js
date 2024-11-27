@@ -63,3 +63,53 @@ export const sendNotificationToDoctor = async (doctorId, consultationId,username
     console.log('Error sending notification: B', error);
   }
 };
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldShowAlert: true, 
+    shouldPlaySound: true, 
+    shouldSetBadge: false, 
+  }),
+});
+export const sendNotificationToUser = async (userId,bloodSugarLevel,username) => {
+  try {
+    const userDoc = await getDoc(doc(FIRESTORE_DB, 'users', userId));
+    console.log(userDoc.data())
+    if (userDoc.exists()) {
+      const userData = userDoc.data();
+      console.log('Doctor data:', userData);
+      let title = '';
+      let condition = '';
+      if(bloodSugarLevel < 70){
+        title = 'Low Blood Sugar Level';
+        condition = 'Hypoglycemia'
+      }
+      else if(bloodSugarLevel > 180){
+        title = 'High Blood Sugar Level';
+        condition = 'Hyperglycemia'
+        }
+      const message = {
+        to: userData.deviceToken,
+        sound: 'default',
+        title: title,
+        body: `${username}. is under ${condition} \n Blood sugar level: ${bloodSugarLevel}`,
+      };
+
+      const response = await fetch('https://exp.host/--/api/v2/push/send', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(message),
+      });
+
+      if (response.ok) {
+        //
+      } else {
+        console.log('Error sending notification: A', response.statusText);
+      }
+    }
+  } catch (error) {
+    console.log('Error sending notification: B', error);
+  }
+};

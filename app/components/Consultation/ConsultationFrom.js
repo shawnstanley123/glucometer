@@ -8,7 +8,6 @@ import { sendNotificationToDoctor } from '../Notifications/PushNotificationsServ
 function ConsultationForm({ route, navigation }) {
     const { userDataa } = route.params || {};
     const {liveData} = route.params || 0;
-    console.log(liveData)
     const [doctorId, setDoctorId] = useState(null); // Default doctor ID or fetch dynamically
     const [patientNotes, setPatientNotes] = useState('');
     const [consultationDetails, setConsultationDetails] = useState({
@@ -18,7 +17,6 @@ function ConsultationForm({ route, navigation }) {
         weight: '',
         bloodSugarLevel: liveData || '',
     });
-    console.log(consultationDetails)
 
   const isFormValid = () => {
     return (
@@ -35,7 +33,6 @@ function ConsultationForm({ route, navigation }) {
       try {
         const user = FIREBASE_AUTH.currentUser;
         if (user) {
-          console.log(user.uid);
   
           const doctorDoc = await getDoc(doc(FIRESTORE_DB, 'patient', user.uid));
           

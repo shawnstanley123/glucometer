@@ -6,9 +6,9 @@ import { FIRESTORE_DB } from '../../../backend/firebaseConfig';
 
 const SetAlarms = ({ route, navigation }) => {
   const { consultationId } = route.params;
-  console.log(consultationId)
+  
   const [routines, setRoutines] = useState([]);
-console.log(routines[0])
+
   useEffect(() => { 
     const fetchRoutines = async () => {
       try {

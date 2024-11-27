@@ -10,6 +10,7 @@ import { ref, onValue } from 'firebase/database';
 import SetAlarms from '../SetAlarms/SetAlarms';
 import { LinearGradient } from 'expo-linear-gradient';
 import LottieView from 'lottie-react-native';
+import { sendNotificationToUser } from '../Notifications/PushNotificationsService';
 
 function Testing({ navigation }) {
 
@@ -128,15 +129,41 @@ function Testing({ navigation }) {
   };
 
 
+const sendAlertToUsers = async (currentValue) =>{
+  try {
+    const patientDocRef = doc(FIRESTORE_DB, 'patient', user.uid);
+    const patientDoc = await getDoc(patientDocRef);
+    if (patientDoc.exists()) {
+      const patientData = patientDoc.data();
+      console.log(patientData?.name,"patient");
+      if(currentValue<70 || currentValue>180){
+        
+      
+      if (Array.isArray(patientData?.user)) {
+        for (const userId of patientData.user) {
+          await sendNotificationToUser(userId, currentValue, patientData?.name);
+        }
+      } else {
+        console.log('No users found in the patient document.');
+      }
+      }
 
+
+ 
+    } else {
+      console.log('No such patient document!');
+    }
+  } catch (error) {
+    console.log('Error updating document:', error);
+    Alert.alert('Error', 'Failed to add blood sugar level.');
+  }
+}
   const handleRetakeTest = async (currentValue) => {
     try {
       const patientDocRef = doc(FIRESTORE_DB, 'patientDetails', user.uid);
       const patientDoc = await getDoc(patientDocRef);
       if (patientDoc.exists()) {
         const patientData = patientDoc.data();
-        console.log(patientDoc.data());
-        console.log("entering",finalValue)
         const newEntry = {
           value:currentValue,
           timestamp: new Date().toISOString(),
@@ -146,6 +173,9 @@ function Testing({ navigation }) {
         await updateDoc(patientDocRef, {
           bloodSugar: arrayUnion(newEntry),
         });
+        sendAlertToUsers(currentValue)
+        // await sendNotificationToUser(doctorId, currentValue, patientData?.patientName);
+
 
         Alert.alert('Success', 'Blood sugar level added.');
       } else {

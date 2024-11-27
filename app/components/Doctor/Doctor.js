@@ -50,7 +50,6 @@ export default function Doctor({ navigation }) {
       collection(FIRESTORE_DB, 'consultations'),
       where('patientId', 'in', patientIds)
     );
-    console.log("called")
 
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
       setPatients((prevPatients) => {

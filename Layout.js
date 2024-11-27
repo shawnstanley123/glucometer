@@ -47,14 +47,13 @@ function UserLayout(){
   return (
     <InsideStack.Navigator>
       <InsideStack.Screen name="Test" component={User} options={{ headerShown: false }} />
-      
+      <InsideStack.Screen name="PatientDetail" component={PatientDetail} />
     </InsideStack.Navigator>
   );
 }
 
 function App() {
   const { user, role } = useAuth();
-console.log(user)
   return (
     <NavigationContainer>
       <GestureHandlerRootView>
