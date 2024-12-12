@@ -18,6 +18,8 @@ import ViewConsultation from './app/components/Consultation/ViewConsultation';
 import SetAlarms from './app/components/SetAlarms/SetAlarms';
 import CreateRoutine from './app/components/Routine/CreateRoutine';
 import ShareData from './app/components/ShareData/ShareData';
+import DoctorList from './app/components/DoctorList/DoctorList';
+import ChatRoom from './app/components/ChatRoom/ChatRoom';
 const Stack = createStackNavigator();
 const InsideStack = createStackNavigator();
 
@@ -28,6 +30,8 @@ function InsideLayout() {
       <InsideStack.Screen name="Test" component={Testing} options={{ headerShown: false }} />
       <InsideStack.Screen name="Results" component={ResultsScreen} options={{ headerShown: false }} />
       <InsideStack.Screen name="ConsultationForm" component={ConsultationForm} />
+      <InsideStack.Screen name="DoctorList" component={DoctorList} options={{ headerShown: false }} />
+      <InsideStack.Screen name="ChatRoom" component={ChatRoom} options={{ headerShown: false }} />
       <InsideStack.Screen name="CreateRoutine" component={CreateRoutine} />
       <InsideStack.Screen name="SetAlarms" component={SetAlarms} />
       <InsideStack.Screen name="ShareData" component={ShareData} />
@@ -39,6 +43,7 @@ function DoctorLayout(){
     <InsideStack.Navigator>
       <InsideStack.Screen name="Test" component={Doctor} options={{ headerShown: false }} />
       <InsideStack.Screen name="PatientDetail" component={PatientDetail} />
+      <InsideStack.Screen name="ChatRoom" component={ChatRoom} options={{ headerShown: false }} />
       <InsideStack.Screen name="ConsultationDetail" component={ViewConsultation} />
     </InsideStack.Navigator>
   );

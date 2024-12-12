@@ -5,9 +5,15 @@ import Layout from './Layout'
 export default function App() {
   console.log(useDeviceOrientation());
   return (
+    <>
+      <StatusBar
+        backgroundColor="#101929" // Set your desired background color
+        barStyle="light-content" // Choose 'light-content' or 'dark-content'
+      />
     <SafeAreaView className="flex-1 h-full ">
      <Layout/>
     </SafeAreaView> 
+    </>
   );
 }
 

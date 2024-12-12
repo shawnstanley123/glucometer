@@ -63,7 +63,7 @@ const SetAlarms = ({ route, navigation }) => {
         ))}
       </ScrollView>
       <TouchableOpacity
-        style={{ backgroundColor: '#2196F3', padding: 10, borderRadius: 5, marginTop: 20 }}
+        style={{ backgroundColor: '#101929', padding: 10, borderRadius: 5, marginTop: 20 }}
         onPress={handleSetAlarms}
       >
         <Text style={{ color: 'white', textAlign: 'center' }}>Set Alarms</Text>

@@ -29,6 +29,7 @@
       "eas": {
         "projectId": "3c2a1a71-d1ba-4bf6-ba5c-ea30dd02a076"
       }
-    }
+    },
+    "plugins": ["@config-plugins/react-native-webrtc"]
   }
 }

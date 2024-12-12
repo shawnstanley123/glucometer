@@ -211,12 +211,12 @@ const sendAlertToUsers = async (currentValue) =>{
              
             </View>
             <View className="px-10 py-8 flex items-center">
-              <View className="h-20 w-20 rounded-full overflow-hidden">
+              {/* <View className="h-20 w-20 rounded-full overflow-hidden">
                 <ImageBackground
                   source={{ uri: "https://qph.cf2.quoracdn.net/main-qimg-f1f534fd992d4bbbd1b5c2bfb0b640a5-lq" }}
                   className="h-full w-full"
                 />
-              </View>
+              </View> */}
             </View>
           </View>
         </ImageBackground>
@@ -260,7 +260,7 @@ const sendAlertToUsers = async (currentValue) =>{
           </View>
         </View>
       </View>
-      <View className="overflow-hidden shadow-lg rounded-t-lg mt-2 p-3 bg-white h-96">
+      <View className="overflow-hidden shadow-lg rounded-t-lg mt-2 p-3 bg-white">
         <View className="h-72">
        {testDone && finalValue<70 && (
          <View>
@@ -272,13 +272,6 @@ const sendAlertToUsers = async (currentValue) =>{
          <Text className="my-2">3. Recheck your blood sugar afer 15 minutes. If it's stll low, consume another 15-20 grams of 
          carbohydrates.</Text>
          <Text className="my-2">4. Once blood sugar is back to normal, eat a snack or meal to stabilize levels.</Text>
-         <TouchableOpacity
-          style={[styles.button, styles.width, { padding: 10, backgroundColor: 'white', zIndex:20}]}
-          onPress={() => navigateToConsultationForm()} // Navigate to ConsultationForm screen
-          className="bg-slate-600"
-        >
-          <Text className="text-white text-center">Consult Doctor</Text>
-        </TouchableOpacity>
          </View>
        )}
         {testDone&&finalValue>140 && (
@@ -289,12 +282,6 @@ const sendAlertToUsers = async (currentValue) =>{
          <Text className="my-2">1. Drink water to help fush excess sugar from your blood.</Text>
          <Text className="my-2">2. Adjust your diet to include lower-carb optons and avoid sugary foods.</Text>
          <Text className="my-2">3. Increase physical actvity if safe to do so.</Text>
-         <TouchableOpacity
-          className="bg-slate-600 py-2 mt-8 rounded z-20"
-          onPress={() => navigateToConsultationForm()} // Navigate to ConsultationForm screen
-        >
-          <Text className="text-white text-center font-semibold">Consult Doctor</Text>
-        </TouchableOpacity>
  
          </View>
        )}
@@ -309,47 +296,48 @@ const sendAlertToUsers = async (currentValue) =>{
          <Text className=" text-base font-semibold text-center">Congratulations!!!</Text>
          <View className="w-full border-t border-gray-400 my-2" />
          <Text className="text-sm text-center font-semibold my-3 text-green-600">Your result is Normal</Text>
-         <Text className="my-2 text-center">Do you still want to consult a Doctor?</Text>
-         <TouchableOpacity
-          className="bg-slate-600 py-2 mt-8 rounded z-20"
-          onPress={() => navigateToConsultationForm()} // Navigate to ConsultationForm screen
-        >
-          <Text className="text-white text-center font-semibold">Consult Doctor</Text>
-        </TouchableOpacity>
- 
          </View>
        )}
        </View>
         <View className="flex flex-row justify-between">
       <TouchableOpacity
-        className="flex-1 bg-white p-4 shadow-lg shadow-slate-300 items-center z-20"
+        className="flex-1 bg-white p-4 shadow-lg shadow-slate-300 items-center z-20 border border-gray-400"
         onPress={() => navigation.navigate('Results', { finalValue })}
       >
         <Text className="text-gray-800 text-sm font-semibold mt-2">Show Results</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        className="flex-1 bg-white p-4 shadow-lg shadow-slate-300 items-center z-20"
-        onPress={() => FIREBASE_AUTH.signOut()}
-      >
-        <Text className="text-gray-800 text-sm font-semibold items-center mt-2">Logout</Text>
-      </TouchableOpacity>
+          className="bg-white p-4 flex items-center rounded z-20 w-[25%] border border-gray-400"
+          onPress={() => navigation.navigate('DoctorList')} // Navigate to ConsultationForm screen
+        >
+          <Text className="text-gray-800  text-center font-semibold">Consult Doctor</Text>
+        </TouchableOpacity>
+
       <TouchableOpacity
-        className="flex-1 bg-white p-4 shadow-lg shadow-slate-300 items-center z-20"
+        className="flex-1 bg-white p-4 shadow-lg shadow-slate-300 items-center z-20 border border-gray-400"
         onPress={() => navigation.navigate('SetAlarms', { consultationId: user.uid })}
       >
         <Text className="text-gray-800 text-sm font-semibold mt-2">Show Routines</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        className="flex-1 bg-white p-4 shadow-lg shadow-slate-300 items-center z-20"
+        className="flex-1 bg-white p-4 shadow-lg shadow-slate-300 items-center z-20 border border-gray-400"
         onPress={() => navigation.navigate('CreateRoutine', { consultationId: user.uid })}
       >
         <Text className="text-gray-800 text-sm font-semibold mt-2">Create Routine</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        className="flex-1 bg-white p-4 shadow-lg shadow-slate-300 items-center z-20"
+      </TouchableOpacity>  
+    </View>
+    <View className="flex flex-row">
+    <TouchableOpacity
+        className="w-[25%]  bg-white pr-5 p-4 shadow-lg shadow-slate-300 items-center z-20 border rounded border-gray-400"
         onPress={() => navigation.navigate('ShareData', { userId: user.uid })}
       >
         <Text className="text-gray-800 text-sm font-semibold mt-2">Share Data</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        className=" bg-white p-4 shadow-lg shadow-slate-300 items-center z-20 border w-[25%] border-gray-400"
+        onPress={() => FIREBASE_AUTH.signOut()}
+      >
+        <Text className="text-gray-800 text-sm font-semibold items-center mt-2">Logout</Text>
       </TouchableOpacity>
     </View>
       </View>

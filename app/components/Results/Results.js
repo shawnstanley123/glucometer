@@ -147,16 +147,17 @@ const [selectedFilter, setSelectedFilter] = useState(null); // Track selected fi
 
     return (
         <ImageBackground
-      source={backgroundImage}
+        source={{ uri: "https://i.pinimg.com/originals/db/64/d0/db64d058a37059774c3218315d377441.jpg" }}
       class="h-full w-full"
     >
         <View className="rounded-lg overflow-hidden h-[25%] m-4 p-3">
-            <Text className='text-center font-bold text-base'>Results</Text>
-            <Text style={styles.text}>Select Filter</Text>
+            <Text className='text-center font-bold text-base text-white'>Results</Text>
+            <Text style={styles.text} className="text-white">Select Filter</Text>
       <DropdownComponent
         data={filterOptions}
         placeholder="Select filter"
         searchPlaceholder="Search filter"
+        className="select-filter text-white"
         onSelect={(value) => {
           setSelectedFilter(value);
         }}
@@ -291,6 +292,20 @@ const [selectedFilter, setSelectedFilter] = useState(null); // Track selected fi
               ):(
               <View className="h-full">
                 <Text className="font-bold mb-5">Recommended diet</Text>
+                { locationRendered  && (<View>
+                  {filteredDataArray.length > 0 && filteredDataArray[0][selectedOption] && (
+                  <>
+                      <Text className="text-green-600 text-lg">Do's <FontAwesome5 name="check-circle" size={15} color="#25ad23" /></Text>
+                      <Text className="mt-5 text-lg rounded-lg overflow-hidden shadow-lg bg-slate-100 p-3">{filteredDataArray[0][selectedOption].dos[0]}</Text>
+                      <Text className="mt-5 text-lg rounded-lg overflow-hidden shadow-lg bg-slate-100 p-3">{filteredDataArray[0][selectedOption].dos[1]}</Text>
+                      </>)}
+                      {filteredDataArray.length > 0 && filteredDataArray[0][selectedOption] && (
+                  <>
+                      <Text className="text-red-500 text-lg mt-5">Dont's <FontAwesome5 name="times-circle" size={15} color="#eb4d4d" /></Text>
+                      <Text className="mt-5 text-lg rounded-lg overflow-hidden shadow-lg bg-slate-100 p-3">{filteredDataArray[0][selectedOption].donts[0]}</Text>
+                      <Text className="mt-5 text-lg rounded-lg overflow-hidden shadow-lg bg-slate-100 p-3">{filteredDataArray[0][selectedOption].donts[1]}</Text>
+                      </>)}
+                    </View>)}
                 {selectedOption=='immediate' && (
                   <View>
                 

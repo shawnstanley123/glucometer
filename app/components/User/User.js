@@ -152,18 +152,20 @@ export default function Doctor({ navigation }) {
                     <Text className="text-white font-semibold text-center">Users</Text>
                 </View>
                 {patients.map((patient)=>(
-                    <View className="flex flex-row items-center space-x-10 w-full shadow-md shadow-gray-200 border-x-yellow-900 p-6" key={patient?.userId}>
+                    <View className="flex flex-col items-center shadow-md shadow-gray-200 border-x-yellow-900 m-2 rounded-xl bg-slate-100" key={patient?.userId}>
+                <View className="p-3 flex flex-row w-full items-center">
                 <View className="w-[15%]">
                 <Image source={require('../../assets/avatar.png')} className="w-20 h-20 rounded-full border border-gray-300"/>
                 </View>
-                <View className="px-3">
+                <View className="ml-10">
                     <Text className="text-base font-semibold">{patient?.name}</Text>
                     <Text className="text-gray-500 text-sm">Email: {patient?.email}</Text>
                     {/* <Text className="text-gray-500 text-sm">Age: {patient?.age}</Text> */}
-                    <TouchableOpacity className="bg-zinc-400 p-2 rounded mt-3 w-[60%]" onPress={() => navigation.navigate('PatientDetail', { patientId: patient.id })}>
+                </View>
+                </View>
+                    <TouchableOpacity className="bg-gray-950 p-2 rounded-b-xl mt-3 w-full" onPress={() => navigation.navigate('PatientDetail', { patientId: patient.id })}>
                         <Text className="text-white text-center font-semibold">View Records</Text>
                     </TouchableOpacity>
-                </View>
                 </View>
                 ))}
             </View>    

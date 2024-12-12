@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Text, SafeAreaView, View, TouchableOpacity, ImageBackground, Alert, TextInput, ScrollView } from 'react-native';
+import { Text, SafeAreaView, View, TouchableOpacity, ImageBackground, Alert, TextInput, ScrollView,Image } from 'react-native';
 import { doc, getDoc, collection, query, where, getDocs, onSnapshot, updateDoc, arrayUnion } from 'firebase/firestore';
 import { onAuthStateChanged } from 'firebase/auth';
 import { FIREBASE_AUTH, FIRESTORE_DB } from '../../../backend/firebaseConfig';
 import { registerForPushNotificationsAsync } from '../Notifications/PushNotificationsService';
 import * as Notifications from 'expo-notifications';
-
+import { FontAwesome } from '@expo/vector-icons';
+import { getRoomId } from '../../utils/common';
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
     shouldShowAlert: true,
@@ -19,7 +20,7 @@ export default function Doctor({ navigation }) {
   const [role, setRole] = useState(null);
   const [friendCode, setFriendCode] = useState('');
   const [patients, setPatients] = useState([]);
-
+  const [unreadCounts, setUnreadCounts] = useState({});
   const fetchInitialData = async () => {
     try {
       const user = FIREBASE_AUTH.currentUser;
@@ -163,7 +164,38 @@ export default function Doctor({ navigation }) {
       responseSubscription.remove();
     };
   }, []);
-
+  useEffect(()=>{
+    
+    const fetchUnreadMessages = () => {
+      const user = FIREBASE_AUTH.currentUser;
+      if (!user) return;
+      // Fetch unread message counts for each doctor
+      patients.forEach((patient) => {
+        // Query the sub-collection 'messages' inside each 'room'
+        const q = query(
+            collection(FIRESTORE_DB, 'rooms', getRoomId(patient?.userId,user?.uid), 'messages'),
+            where('userId', '!=', user.uid), // Messages not sent by the current user
+            where('isRead', '==', false)    // Only unread messages
+        );
+    
+        const unsub = onSnapshot(q, (snapshot) => {
+            // The size of the snapshot equals the count of unread messages for the specific room
+            const unreadCount = snapshot.size;
+    
+            // Update the state with unread count for the current doctor
+            setUnreadCounts((prevCounts) => ({
+                ...prevCounts,
+                [patient?.userId]: unreadCount, // Map unread count to the doctor ID
+            }));
+        });
+        console.log(unreadCounts)
+    });;
+  };
+  fetchUnreadMessages();
+  },[patients])
+  const navigateToChat = (doctorId,doctorName) => {
+    navigation.navigate('ChatRoom', { doctorId,doctorName});
+}
   return (
     <SafeAreaView className='flex-1 w-full'>
       <View className="rounded overflow-hidden shadow-lg bg-white m-4">
@@ -201,24 +233,27 @@ export default function Doctor({ navigation }) {
           onChangeText={setFriendCode}
         />
         <TouchableOpacity
-          style={{ padding: 10, backgroundColor: '#cf6a3c', borderRadius: 4, alignItems: 'center' }}
+          style={{ padding: 10, backgroundColor: '#101929', borderRadius: 4, alignItems: 'center' }}
           onPress={addPatientByFriendCode}
         >
           <Text style={{ color: 'white', fontWeight: 'bold' }}>Add Patient</Text>
         </TouchableOpacity>
       </View>
       <Text className="text-xl font-bold mb-4 text-center">Patients</Text>
-      <ScrollView className="p-4 m-3 bg-white rounded-lg">
+      <ScrollView className="p-4 m-3 bg-white rounded-xl">
         {patients.map((patient) => (
-          <View key={patient.id} className="mb-5">
-            <Text className="text-base font-semibold mb-8">Patient Name: {patient.name}</Text>
-            <View className="flex-row justify-between">
-              <TouchableOpacity
+          <View key={patient.id} className="mb-5 bg-slate-100 rounded-xl shadow-black shadow-gray-800">
+            <View className="flex-row p-4">
+              <Image source={require('../../assets/avatar.png')} className="w-20 h-20 rounded-full border border-gray-300"/>
+              <View className="ml-5">
+            <Text className="text-base font-semibold mb-4">Patient Name: {patient.name}</Text>
+              
+              {/* <TouchableOpacity
                 className="py-2 px-2 rounded-lg"
-                onPress={() => navigation.navigate('PatientDetail', { patientId: patient.id })}
+                onPress={() => navigateToChat(patient?.id,patient?.name)}
               >
-                <Text className="text-blue-600 font-bold">View Details</Text>
-              </TouchableOpacity>
+                <Text className="text-blue-600 font-bold">Chat</Text>
+              </TouchableOpacity> */}
               {patient.hasPendingConsultation && (
                 <TouchableOpacity
                   className="py-2 px-4 bg-green-600 rounded-lg"
@@ -227,13 +262,41 @@ export default function Doctor({ navigation }) {
                   <Text className="text-white font-bold">View Consultation</Text>
                 </TouchableOpacity>
               )}
+              </View>
             </View>
-            <View className="border-b border-gray-300 my-4" />
+            <View className="border-b border-gray-300 mt-4" />
+            <View className="flex flex-row">
+            <TouchableOpacity
+                className="py-2 px-2 rounded-bl-xl flex-1 border bg-gray-950 border-white"
+                onPress={() => navigation.navigate('PatientDetail', { patientId: patient.id })}
+              >
+                <Text className="text-white font-bold text-center">View Details</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                                className="flex-1 border rounded-br-xl flex justify-center items-center bg-gray-950"
+                                onPress={() => navigateToChat(patient?.id,patient?.name)}
+                            >
+                                {/* Chat Icon */}
+                                <View className="relative">
+                                    <FontAwesome name="wechat" size={24} color="white" />
+                                    {/* Badge for Unread Messages */}
+                                    {unreadCounts[patient?.userId] > 0 && (
+                                        <View
+                                            className="absolute -top-1 -right-2 bg-red-500 h-5 w-5 rounded-full justify-center items-center"
+                                        >
+                                            <Text className="text-white text-xs font-bold">
+                                                {unreadCounts[patient?.userId]}
+                                            </Text>
+                                        </View>
+                                    )}
+                                </View>
+                            </TouchableOpacity>
+            </View>
           </View>
         ))}
       </ScrollView>
       <TouchableOpacity
-        style={{ padding: 10, backgroundColor: '#cf6a3c', borderRadius: 4, alignItems: 'center' }}
+        style={{ padding: 10, backgroundColor: '#101929', borderRadius: 4, alignItems: 'center' }} 
         onPress={() => FIREBASE_AUTH.signOut()}
       >
         <Text className="text-white">Log Out</Text>

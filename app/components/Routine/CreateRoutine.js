@@ -98,8 +98,8 @@ const CreateRoutine = () => {
 
   return (
     <View>
-        <View >
-          <View>
+        <View className="bg-white rounded-lg m-4 shadow-md shadow-gray-600">
+          <View className="p-4">
             <Text style={styles.modalTitle}>Create Routine</Text>
             <View className="flex flex-row gap-2 p-1">
       <View className="flex-1">
@@ -133,7 +133,7 @@ const CreateRoutine = () => {
         )}
       </View>
       <TouchableOpacity
-        className="flex-[0.2] bg-blue-500 p-2 rounded-md justify-center items-center"
+        className="flex-[0.2] p-2 rounded-md justify-center items-center" style={{backgroundColor:"#101929"}}
         onPress={handleAddRoutine}
       >
         <Text className="text-white font-bold">Add</Text>
@@ -153,24 +153,14 @@ const CreateRoutine = () => {
             </ScrollView>
             <View style={styles.buttonsContainer}>
               <TouchableOpacity
-                style={[styles.button, { backgroundColor: '#2196F3' }]}
+                style={[styles.button, { backgroundColor: '#101929' }]}
                 onPress={handleSubmit}
               >
                 <Text style={styles.buttonText}>Submit</Text>
               </TouchableOpacity>
-              <TouchableOpacity
-                style={[styles.button, { backgroundColor: '#FF0000' }]}
-                onPress={() => {
-                  setIsModalVisible(false);
-                  resetStack();
-                }}
-              >
-                <Text style={styles.buttonText}>Close</Text>
-              </TouchableOpacity>
             </View>
           </View>
         </View>
-      <Text>CreateRoutine</Text>
     </View>
   );
 };
